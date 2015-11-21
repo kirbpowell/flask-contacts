@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Kirby's Contacts</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+ 
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active">
+                        <a href="/">
+                            <span class="glyphicon glyphicon-chevron-left"></span>All Contacts
+                        </a>
+                    </li>
+                    <li role="presentation" class="active">
+                        <a href="/sorry"><span class="glyphicon glyphicon-star"></span></a>
+                    </li>
+                    <li role="presentation" class="active">
+                        <a href="/sorry"><span class="glyphicon glyphicon-pencil"></span></a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Kirby's Contacts Page!</h3>
+        </div>
+ 
+        <div class="jumbotron">
+            <div class="clearfix">
+                <img src="{{ details.largeImageURL }}" style="float: left; padding: 0% 2% 0% 0%;">
+                <strong class="pull-left">Name:</strong><br/>
+                <span class="pull-left">{{ contact.name }}</span> <br/><br/>
+                <strong class="pull-left">Company:</strong><br/>
+                <span class="pull-left">{{ contact.company }}</span> <br/><br/>
+            </div> <br/>
+
+            <div class="clearfix">
+                <strong class="pull-left">Phone:</strong><br/>
+                {% if contact.phone.work %}
+                    <span class="pull-left">{{ contact.phone.work }}</span>
+                    <span class="pull-right">Work</span>
+                {% endif %}
+                <br/>
+                {% if contact.phone.home %}
+                    <span class="pull-left">{{ contact.phone.home }}</span>
+                    <span class="pull-right">Home</span>
+                {% endif %}
+                <br/>
+                {% if contact.phone.work %}
+                    <span class="pull-left">{{ contact.phone.mobile }}</span>
+                    <span class="pull-right">Mobile</span>
+                {% endif %}
+            </div><br/>
+
+            <div class="clearfix">
+                <strong class="pull-left">Address:</strong><br/>
+                <span class="pull-left">{{ details.address.street }}</span><br/>
+                <span class="pull-left">{{ details.address.city }}, {{details.address.state }} {{ details.address.zip }}</span><br/>
+            </div><br/>
+
+            <div class="clearfix">
+                <strong class="pull-left">Birthday:</strong><br/>
+                <span class="pull-left">{{ birthday }}</span>
+            </div><br/>
+
+            <div class="clearfix">
+                <strong class="pull-left">Email:</strong><br/>
+                <span class="pull-left">{{ details.email }}</span>
+            </div>
+        </div>
+ 
+        <footer class="footer">
+            <p>&copy; Interview Code 2015</p>
+        </footer>
+ 
+    </div>
+</body>
+ 
+</html>
